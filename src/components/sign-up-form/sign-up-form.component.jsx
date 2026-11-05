@@ -23,11 +23,10 @@ export const SignupForm = () => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+
 		// Validate password
 		if (password !== confirmPassword) return;
 		if (password.length < 6) return;
-
-		console.log(formFields);
 
 		await createAuthUserWithUserAndPassword(displayName, email, password).then(
 			() => {
