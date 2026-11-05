@@ -1,9 +1,9 @@
 import { initializeApp } from "firebase/app";
 import {
+	createUserWithEmailAndPassword,
 	GoogleAuthProvider,
 	getAuth,
 	signInWithPopup,
-	signInWithRedirect,
 } from "firebase/auth";
 
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
@@ -17,7 +17,7 @@ const firebaseConfig = {
 	appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const provider = new GoogleAuthProvider();
 
@@ -27,8 +27,6 @@ provider.setCustomParameters({
 
 export const auth = getAuth();
 export const signInWithGooglePopUp = () => signInWithPopup(auth, provider);
-export const signInWithGoogleRedirect = () =>
-	signInWithRedirect(auth, provider);
 
 export const db = getFirestore();
 
@@ -52,4 +50,26 @@ export const createUserDocumentFromAuth = async (userAuth) => {
 			}),
 		);
 	}).catch((err) => console.error(err));
+};
+
+export const createAuthUserWithUserAndPassword = async (
+	displayName,
+	email,
+	password,
+) => {
+	if (!email || !password || !displayName) return;
+
+	const response = await createUserWithEmailAndPassword(
+		auth,
+		email,
+		password,
+	).catch((error) => {
+		if (error.code === "auth/email-already-in-use") {
+			alert("Email already in use");
+		}
+	});
+
+	if (response) {
+		createUserDocumentFromAuth({ ...response.user, displayName });
+	}
 };
