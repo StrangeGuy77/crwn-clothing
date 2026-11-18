@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Crown Clothing
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A commercial clothing platform built with React. This project serves as a starting point for developing an online clothing store, with reusable UI components, authentication flows, application context and Firebase utilities.
+
+## Tech Stack
+
+- **React** - UI development and component-based architecture.
+- **JavaScript (JSX)** - Application logic and component definitions.
+- **SCSS** - Component styling and stylesheet organization.
+- **Firebase** - Authentication and backend utilities.
+
+## Project Structure
+
+The source code is organized by responsibility, keeping reusable components, application routes, shared context and utilities separated.
+
+```text
+src/
+├── assets/
+│   ├── categories.json
+│   └── crown.svg
+├── components/
+│   ├── button/
+│   ├── category-item/
+│   ├── directory/
+│   ├── form-input/
+│   ├── navigation/
+│   ├── sign-in-form/
+│   └── sign-up-form/
+├── context/
+│   └── user.context.jsx
+├── routes/
+│   ├── authentication/
+│   └── home/
+├── utils/
+│   └── firebase/
+│       └── firebase.utils.js
+├── App.js
+├── App.css
+├── App.test.js
+├── index.js
+├── index.scss
+├── reportWebVitals.js
+└── setupTests.js
+```
+
+### Components
+
+Reusable UI elements are grouped into individual directories. Each component keeps its JSX implementation and SCSS stylesheets together.
+
+### Context
+
+Shared application state is handled through React Context. The current context implementation is responsible for user-related state.
+
+### Routes
+
+Application views are organized by route, with separate directories for authentication and the home page.
+
+### Utils
+
+Contains shared utilities and external service integrations, currently including Firebase-related functionality.
+
+### Assets
+
+Static resources and application data, including category definitions and branding assets.
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd crwn-clothing
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm start
+```
+
+## Environment Variables
+
+The application uses a local environment configuration file.
+
+Create a `.env.local` file in the project root and configure the required Firebase credentials.
+
+Make sure not to commit private credentials or environment-specific configuration to the repository.
 
 ## Available Scripts
 
-In the project directory, you can run:
+Run the following commands from the project root:
 
-### `npm start`
+| Command | Description |
+|---|---|
+| `npm start` | Starts the development server. |
+| `npm test` | Runs the test suite. |
+| `npm run build` | Creates a production build. |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Check `package.json` for the available scripts and their exact configuration.
