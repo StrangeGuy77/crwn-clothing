@@ -3,6 +3,7 @@ import {
 	createUserWithEmailAndPassword,
 	GoogleAuthProvider,
 	getAuth,
+	onAuthStateChanged,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 	signOut,
@@ -81,3 +82,6 @@ export const signInAuthWithUserAndPassword = async (email, password) => {
 };
 
 export const signoutUser = () => signOut(auth);
+
+export const onAuthStateChangedListener = (callback) =>
+	onAuthStateChanged(auth, callback);
