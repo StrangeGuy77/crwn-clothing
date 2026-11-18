@@ -1,4 +1,8 @@
 .cart-icon-container {
+    // Reset default button styles.
+    all: unset;
+
+    border: none;
     width: 45px;
     height: 45px;
     position: relative;
