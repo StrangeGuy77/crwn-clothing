@@ -17,9 +17,9 @@ export const fetchCategoriesAsync = () => async (dispatch) => {
 
 	await getCategories()
 		.then((categories) => {
-			fetchCategoriesSuccess(categories);
+			dispatch(fetchCategoriesSuccess(categories));
 		})
 		.catch((error) => {
-			fetchCategoriesFailed(error);
+			dispatch(fetchCategoriesFailed(error));
 		});
 };
